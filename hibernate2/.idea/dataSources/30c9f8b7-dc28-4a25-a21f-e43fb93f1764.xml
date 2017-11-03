@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="platzi@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="platzi">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="mysql"/>
+    <schema id="5" parent="1" name="performance_schema"/>
+    <schema id="6" parent="1" name="sys"/>
+    <table id="7" parent="2" name="Course"/>
+    <table id="8" parent="2" name="Social_Media"/>
+    <table id="9" parent="2" name="Teacher"/>
+    <table id="10" parent="2" name="Teacher_Social_Media"/>
+    <column id="11" parent="7" name="id_course">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="12" parent="7" name="id_teacher">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="13" parent="7" name="name">
+      <Position>3</Position>
+      <DataType>varchar(250)|0</DataType>
+    </column>
+    <column id="14" parent="7" name="themes">
+      <Position>4</Position>
+      <DataType>text|0</DataType>
+    </column>
+    <column id="15" parent="7" name="project">
+      <Position>5</Position>
+      <DataType>varchar(250)|0</DataType>
+    </column>
+    <index id="16" parent="7" name="Course_Teacher_id_teacher_fk">
+      <ColNames>id_teacher</ColNames>
+    </index>
+    <key id="17" parent="7" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id_course</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="18" parent="7" name="Course_Teacher_id_teacher_fk">
+      <ColNames>id_teacher</ColNames>
+      <RefSchemaName>platzi</RefSchemaName>
+      <RefTableName>Teacher</RefTableName>
+      <RefColNames>id_teacher</RefColNames>
+    </foreign-key>
+    <column id="19" parent="8" name="id_social_media">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="20" parent="8" name="name">
+      <Position>2</Position>
+      <DataType>varchar(250)|0</DataType>
+    </column>
+    <column id="21" parent="8" name="icon">
+      <Position>3</Position>
+      <DataType>varchar(250)|0</DataType>
+    </column>
+    <key id="22" parent="8" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id_social_media</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="23" parent="9" name="id_teacher">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="24" parent="9" name="name">
+      <Position>2</Position>
+      <DataType>varchar(250)|0</DataType>
+    </column>
+    <column id="25" parent="9" name="avatar">
+      <Position>3</Position>
+      <DataType>varchar(250)|0</DataType>
+    </column>
+    <key id="26" parent="9" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id_teacher</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="27" parent="10" name="id_teacher_social_media">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="28" parent="10" name="id_teacher">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="29" parent="10" name="id_social_media">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="30" parent="10" name="nickname">
+      <Position>4</Position>
+      <DataType>varchar(250)|0</DataType>
+    </column>
+    <index id="31" parent="10" name="Teacher_Social_Media_Social_Media_id_social_media_fk">
+      <ColNames>id_social_media</ColNames>
+    </index>
+    <index id="32" parent="10" name="Teacher_Social_Media_Teacher_id_teacher_fk">
+      <ColNames>id_teacher</ColNames>
+    </index>
+    <key id="33" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id_teacher_social_media</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="34" parent="10" name="Teacher_Social_Media_Teacher_id_teacher_fk">
+      <ColNames>id_teacher</ColNames>
+      <RefSchemaName>platzi</RefSchemaName>
+      <RefTableName>Teacher</RefTableName>
+      <RefColNames>id_teacher</RefColNames>
+    </foreign-key>
+    <foreign-key id="35" parent="10" name="Teacher_Social_Media_Social_Media_id_social_media_fk">
+      <ColNames>id_social_media</ColNames>
+      <RefSchemaName>platzi</RefSchemaName>
+      <RefTableName>Social_Media</RefTableName>
+      <RefColNames>id_social_media</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>
