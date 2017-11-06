@@ -11,8 +11,8 @@ import java.util.Set;
 public class Teacher implements Serializable{
 
     @Id
-    @Column(name = "id_teacher")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_teacher", nullable = false, updatable = false)
     private Long idTeacher;
 
     @Column(name = "name")
